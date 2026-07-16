@@ -8,7 +8,8 @@
 }
 
 body {
-    background-color: #000000;
+    background: radial-gradient(circle at center, #004C54 0%, #000000 100%);
+    background-attachment: fixed;
     color: #ffffff;
     font-family: 'Space Grotesk', sans-serif;
     min-height: 100vh;
