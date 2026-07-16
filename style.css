@@ -61,7 +61,7 @@ body {
 
 /* Regole per il Logo in formato Immagine */
 .logo-img {
-    height: 128px; /* Rimpicciolito al massimo per essere minimalista */
+    height: 64px; /* Rimpicciolito al massimo per essere minimalista */
     width: auto;  /* Mantiene le proporzioni originali */
     display: block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); 
