@@ -51,27 +51,26 @@ body {
 /* Contenitore del logo (mantiene la posizione e l'animazione di hover) */
 .global-back-logo {
     position: absolute;
-    top: 35px;
-    right: 45px;
+    top: 30px;     /* Leggermente più basso per allinearsi meglio */
+    right: 40px;    /* Distanza pulita dal bordo destro */
     z-index: 100;
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
                 filter 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Stile dell'immagine del logo */
+/* Regole per il Logo in formato Immagine */
 .logo-img {
-    height: 32px; /* Regola l'altezza come preferisci */
-    width: auto;  /* Mantiene le proporzioni corrette */
+    height: 18px; /* Rimpicciolito al massimo per essere minimalista */
+    width: auto;  /* Mantiene le proporzioni originali */
     display: block;
-    /* Se vuoi applicare lo stesso effetto sfumatura metallica al logo (funziona se il logo è tutto bianco o nero con canale alfa/trasparente) */
-    filter: drop-shadow(0 2px 5px rgba(0,0,0,0.5)); 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); 
 }
 
-/* Effetto al passaggio del mouse */
+/* Animazione morbida sull'hover del logo */
 .global-back-logo:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+    transform: scale(1.08); /* Effetto zoom molto discreto */
+    filter: brightness(1.25) drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
 /* ==========================================================================
@@ -142,24 +141,23 @@ body {
 .category-bg {
     position: absolute;
     top: 0;
-    left: -35%; 
-    width: 170%;
+    left: -20%; /* Ridotto dal -35% per ridurre il ritaglio */
+    width: 140%; /* Ridotto dal 170% per mostrare più dettagli dell'immagine */
     height: 100%;
     background-image: var(--bg-image); 
     background-size: cover;
     background-position: center;
-    transform: skewX(35deg) scale(2); 
+    transform: skewX(35deg) scale(1.2); /* De-zoomato (prima era scale(2)) */
     
-    /* Immagine luminosa e ben visibile anche in stato sfocato */
     filter: blur(14px) brightness(0.65) saturate(95%);
-    
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
                 filter 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 1;
 }
 
 .category-box:hover .category-bg {
-    transform: skewX(35deg) scale(1.75); 
+    /* Massimo de-zoom possibile: quasi 1:1 con l'immagine originale */
+    transform: skewX(35deg) scale(1.1); 
     filter: blur(0px) brightness(0.9) saturate(110%);
 }
 
