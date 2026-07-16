@@ -19,11 +19,12 @@ body {
 }
 
 /* ==========================================================================
-   HEADER
+   HEADER & LOGO DI NAVIGAZIONE GLOBALE (GM)
    ========================================================================== */
 .hero {
     text-align: center;
     padding: 60px 20px 40px 20px;
+    position: relative;
 }
 
 .custom-title {
@@ -47,11 +48,35 @@ body {
     text-transform: uppercase;
 }
 
+/* Logo GM in alto a destra */
+.global-back-logo {
+    position: absolute;
+    top: 35px;
+    right: 45px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+    z-index: 100;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                filter 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.global-back-logo:hover {
+    transform: scale(1.15);
+    filter: brightness(1.3) drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
 /* ==========================================================================
-   CONTENITORE CATEGORIE (MODIFICATO: PIÙ GRANDE LATERALMENTE)
+   CONTENITORE CATEGORIE (CINEMATIC WIDE)
    ========================================================================== */
 .portfolio-container {
-    max-width: 1440px; /* Molto più largo lateralmente per un look cinematico */
+    max-width: 1440px;
     width: 95%;
     margin: 0 auto;
     padding: 10px 0;
@@ -60,7 +85,7 @@ body {
 .categories-wrapper {
     display: flex;
     width: 100%;
-    height: 420px; /* Altezza vecchia invariata */
+    height: 420px; /* Altezza di default preservata */
     border: 1px solid #161616;
     border-radius: 20px;
     overflow: hidden; 
@@ -69,7 +94,7 @@ body {
 }
 
 /* ==========================================================================
-   STRUTTURA CATEGORIE (TAGLIO A 35 GRADI)
+   STRUTTURA CATEGORIE (TAGLIO DIAGONALE)
    ========================================================================== */
 .category-box {
     flex: 1;
@@ -84,23 +109,33 @@ body {
     transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Compensazione dell'inclinazione per altezza 420px */
-.cat-1 {
+/* COMPENSAZIONI MODULARI PER 3 COLONNE */
+.cols-3 .cat-first {
     margin-left: -180px;
     padding-left: 90px;
 }
-
-.cat-3 {
+.cols-3 .cat-last {
     margin-right: -180px;
     padding-right: 90px;
 }
-
-.cat-2 {
+.cols-3 .cat-middle {
     margin: 0 -30px;
 }
 
+/* COMPENSAZIONI MODULARI PER 2 COLONNE */
+.cols-2 .cat-first {
+    margin-left: -180px;
+    padding-left: 90px;
+    margin-right: -30px;
+}
+.cols-2 .cat-last {
+    margin-right: -180px;
+    padding-right: 90px;
+    margin-left: -30px;
+}
+
 /* ==========================================================================
-   IMMAGINI DI SFONDO (Sfumatura luminosa e definita)
+   IMMAGINI DI SFONDO & LUMINOSITÀ
    ========================================================================== */
 .category-bg {
     position: absolute;
@@ -113,7 +148,7 @@ body {
     background-position: center;
     transform: skewX(35deg) scale(2); 
     
-    /* Immagini luminose e vive anche nello stato sfocato */
+    /* Immagine luminosa e ben visibile anche in stato sfocato */
     filter: blur(14px) brightness(0.65) saturate(95%);
     
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -126,7 +161,6 @@ body {
     filter: blur(0px) brightness(0.9) saturate(110%);
 }
 
-/* Overlay protettivo per il contrasto dei testi */
 .overlay-gradient {
     position: absolute;
     top: 0;
@@ -143,17 +177,16 @@ body {
 }
 
 /* ==========================================================================
-   DIVISORI "LIQUID GLASS" (MODIFICATI: SU ENTRAMBI I LATI)
+   DIVISORI LIQUID GLASS (DOPPIO LATO)
    ========================================================================== */
 .category-box::before,
 .category-box::after {
     content: '';
     position: absolute;
     top: -5%;
-    width: 16px; /* Spessore del vetro curvo */
+    width: 16px; 
     height: 110%;
     
-    /* Bagliore verticale morbido */
     background: linear-gradient(
         180deg, 
         rgba(255, 255, 255, 0) 0%, 
@@ -163,31 +196,22 @@ body {
         rgba(255, 255, 255, 0) 100%
     );
     
-    border-radius: 100% / 50%; /* Taglio curvo e levigato */
-    
-    /* Luce interna ed esterna del cristallo colato */
+    border-radius: 100% / 50%;
     box-shadow: 
         0 0 10px rgba(255, 255, 255, 0.25),
         inset -1px 0 5px rgba(255, 255, 255, 0.35);
         
-    filter: blur(1.2px); /* Elimina la rigidità dei pixel */
-    opacity: 0.65; /* Visibili ma discreti di default */
+    filter: blur(1.2px);
+    opacity: 0.65;
     z-index: 4;
     pointer-events: none;
     transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
                 box-shadow 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Posizionamento sui lati */
-.category-box::before {
-    left: -10px; /* Linea di sinistra */
-}
+.category-box::before { left: -10px; }
+.category-box::after { right: -10px; }
 
-.category-box::after {
-    right: -10px; /* Linea di destra */
-}
-
-/* Quando si passa il mouse, ENTRAMBI i lati brillano intensamente */
 .category-box:hover::before,
 .category-box:hover::after {
     opacity: 1;
@@ -197,7 +221,7 @@ body {
 }
 
 /* ==========================================================================
-   CONTENUTO TESTUALE (SENZA NUMERI)
+   TESTI CATEGORIE
    ========================================================================== */
 .category-content {
     position: relative;
@@ -226,16 +250,69 @@ body {
     text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
-/* ANIMAZIONE HOVER */
 .category-box:hover {
     flex: 1.7; 
     z-index: 10;
 }
 
 /* ==========================================================================
+   PAGINE VUOTE (LEAF PAGES)
+   ========================================================================== */
+.leaf-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #111111 0%, #000000 100%);
+    position: relative;
+}
+
+.leaf-content {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.leaf-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #ffffff 0%, #777777 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.leaf-status {
+    font-family: 'Space Grotesk', sans-serif;
+    color: #555555;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+/* ==========================================================================
    RESPONSIVITÀ (MOBILE)
    ========================================================================== */
 @media (max-width: 768px) {
+    .global-back-logo {
+        top: 20px;
+        right: 25px;
+        font-size: 1.5rem;
+    }
+
+    .hero {
+        padding: 80px 20px 30px 20px;
+    }
+
     .categories-wrapper {
         flex-direction: column;
         height: auto;
@@ -245,7 +322,7 @@ body {
     }
 
     .category-box {
-        transform: none; 
+        transform: none !important; 
         margin: 0 !important;
         padding: 0 !important;
         height: 200px;
@@ -254,19 +331,19 @@ body {
     }
 
     .category-bg {
-        transform: scale(1.2); 
+        transform: scale(1.2) !important; 
         left: 0;
         width: 100%;
         filter: blur(8px) brightness(0.65);
     }
 
     .category-box:hover .category-bg {
-        transform: scale(1.1);
+        transform: scale(1.1) !important;
         filter: blur(0px) brightness(0.8);
     }
 
     .category-content {
-        transform: none; 
+        transform: none !important; 
     }
     
     .category-box:hover {
@@ -274,9 +351,8 @@ body {
         transform: scale(1.02);
     }
 
-    /* I due vetri si uniscono in un morbido divisore orizzontale su smartphone */
     .category-box::before {
-        display: none; /* Nascondiamo la linea sinistra su mobile */
+        display: none; 
     }
 
     .category-box:not(:last-child)::after {
