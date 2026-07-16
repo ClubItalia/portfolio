@@ -3,22 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Il Mio Portfolio</title>
+    <title>Portfolio - ClubItalia</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Ciao, sono Giovanni Massa 👋</h1>
-        <p>Director & Creativo</p>
+
+    <header class="hero">
+        <h1 class="custom-title">Giovanni Massa</h1>
+        <p class="custom-subtitle">Digital Artist</p>
     </header>
 
-    <section id="about">
-        <h2>Su di me</h2>
-        <p>Sto imparando i linguaggi del web e questo è il mio primo portfolio ospitato su GitHub Pages!</p>
-    </section>
+    <main class="portfolio-container">
+        <div class="categories-wrapper">
+            
+            <a href="#web" class="category-box cat-1">
+                <div class="category-content">
+                    <span class="cat-number">01</span>
+                    <h3>Director</h3>
+                    <p>Proggetti ideati, realizzati e coordinati da me</p>
+                </div>
+            </a>
+
+            <a href="#graphics" class="category-box cat-2">
+                <div class="category-content">
+                    <span class="cat-number">02</span>
+                    <h3>Personali</h3>
+                    <p>Progetti personali o commissioni</p>
+                </div>
+            </a>
+
+            <a href="#projects" class="category-box cat-3">
+                <div class="category-content">
+                    <span class="cat-number">03</span>
+                    <h3>Archivio</h3>
+                    <p>Vecchi lavori o esercizi</p>
+                </div>
+            </a>
+
+        </div>
+    </main>
 
     <footer>
-        <p>© 2026 - Creato con 💻 da me</p>
+        <p>© 2026 - Ideato e sviluppato Giovanni Massa</p>
     </footer>
+
 </body>
 </html>

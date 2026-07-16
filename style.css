@@ -1,29 +1,187 @@
+/* ==========================================================================
+   RESET & VARIABILI
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f9;
-    color: #333;
+    background-color: #000000; /* Sfondo nero puro */
+    color: #ffffff;
+    font-family: 'Space Grotesk', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HEADER & TYPOGRAPHY (FONT CUSTOM)
+   ========================================================================== */
+.hero {
     text-align: center;
+    padding: 60px 20px;
 }
 
-header {
-    background: #24292e;
+.custom-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 8vw, 5rem); /* Si adatta dinamicamente allo schermo */
+    letter-spacing: -2px;
+    text-transform: uppercase;
+    background: linear-gradient(180deg, #fff 0%, #888 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.custom-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #8a8a8a;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   CONTENITORE CATEGORIE (I TAGLI A 35 GRADI)
+   ========================================================================== */
+.portfolio-container {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.categories-wrapper {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    border: 1px solid #333;
+    border-radius: 12px;
+    overflow: hidden; /* Taglia le parti inclinate che escono dal rettangolo */
+    background: #0a0a0a;
+}
+
+/* Lo stile di ogni singola categoria */
+.category-box {
+    flex: 1;
+    text-decoration: none;
     color: #fff;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Il taglio a 35 gradi (Inclinazione) */
+    transform: skewX(-35deg); 
+    
+    /* Gestiamo lo spazio extra creato dall'inclinazione */
+    margin: 0 -25px; 
+}
+
+/* Colori di sfondo diversi per evidenziare i tagli */
+.cat-1 { background-color: #121212; z-index: 1; }
+.cat-2 { background-color: #1a1a1a; z-index: 2; }
+.cat-3 { background-color: #242424; z-index: 3; }
+
+/* Raddrizziamo il contenuto interno */
+.category-content {
+    transform: skewX(35deg); 
+    text-align: center;
+    padding: 30px;
+    transition: transform 0.5s ease;
+}
+
+/* Elementi di testo dentro le categorie */
+.cat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 3rem;
+    display: block;
+    color: #444;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.category-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+}
+
+.category-box p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+}
+
+/* Effetto Hover interattivo */
+.category-box:hover {
+    flex: 1.3; /* La categoria si allarga fluidamente */
+    background-color: #ffffff;
+    color: #000000;
+    z-index: 10; /* Va in primo piano */
+}
+
+.category-box:hover .category-content p {
+    color: #555;
+}
+
+.category-box:hover .cat-number {
+    color: #bbb;
+}
+
+/* ==========================================================================
+   RESPONSIVITÀ (TABLET & SMARTPHONE)
+   ========================================================================== */
+
+/* Sui tablet allunghiamo leggermente i blocchi */
+@media (max-width: 1024px) {
+    .categories-wrapper {
+        height: 400px;
+    }
+}
+
+/* Sui telefoni i tagli a 35° orizzontali renderebbero i testi illeggibili.
+   Quindi impiliamo le categorie in verticale mantenendo un design pulito. */
+@media (max-width: 768px) {
+    .categories-wrapper {
+        flex-direction: column;
+        height: auto;
+        border: none;
+        gap: 15px;
+        background: transparent;
+    }
+
+    .category-box {
+        transform: none; /* Rimuoviamo l'inclinazione su mobile */
+        margin: 0;
+        height: 180px;
+        border-radius: 8px;
+        border: 1px solid #222;
+    }
+
+    .category-content {
+        transform: none; /* Raddrizziamo il contenuto anche qui */
+    }
+    
+    .category-box:hover {
+        flex: none; /* Disattiviamo l'allargamento orizzontale su mobile */
+        transform: scale(1.02); /* Sostituiamo con un leggero zoom */
+    }
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    text-align: center;
     padding: 40px 20px;
-    border-radius: 8px;
-}
-
-h1 {
-    margin: 0;
-}
-
-section {
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    color: #444;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
 }
