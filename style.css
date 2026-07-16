@@ -23,7 +23,7 @@ body {
    ========================================================================== */
 .hero {
     text-align: center;
-    padding: 60px 20px;
+    padding: 60px 20px 40px 20px;
 }
 
 .custom-title {
@@ -48,27 +48,28 @@ body {
 }
 
 /* ==========================================================================
-   CONTENITORE CATEGORIE
+   CONTENITORE CATEGORIE (MODIFICATO: PIÙ GRANDE)
    ========================================================================== */
 .portfolio-container {
-    max-width: 1200px;
-    width: 90%;
+    max-width: 1250px;
+    width: 92%;
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .categories-wrapper {
     display: flex;
     width: 100%;
-    height: 420px;
-    border: 1px solid #1a1a1a;
-    border-radius: 16px;
-    overflow: hidden; /* Taglia i pezzi esterni e riempie gli angoli perfettamente */
+    height: 520px; /* Rettangolo di default reso più grande e imponente */
+    border: 1px solid #161616;
+    border-radius: 20px;
+    overflow: hidden; 
     background: #000;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
 }
 
 /* ==========================================================================
-   STRUTTURA CATEGORIE (TAGLIO A 35 GRADI)
+   STRUTTURA CATEGORIE
    ========================================================================== */
 .category-box {
     flex: 1;
@@ -79,147 +80,138 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transform: skewX(-35deg); /* Taglio diagonale preciso */
+    transform: skewX(-35deg); 
     transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* COMPENSAZIONE ANGOLI:
-   Spingiamo i box esterni leggermente oltre i limiti per non lasciare 
-   gli angoli vuoti a causa del taglio inclinato.
-*/
+/* Compensazione per l'inclinazione dei bordi esterni */
 .cat-1 {
-    margin-left: -180px;
-    padding-left: 90px;
+    margin-left: -220px;
+    padding-left: 110px;
 }
 
 .cat-3 {
-    margin-right: -180px;
-    padding-right: 90px;
+    margin-right: -220px;
+    padding-right: 110px;
 }
 
 .cat-2 {
-    margin: 0 -30px;
+    margin: 0 -40px;
 }
 
 /* ==========================================================================
-   FROSTED GLASS DI SFONDO (Glitch-Free)
+   IMMAGINI DI SFONDO (MODIFICATO: PIÙ CHIARE DI DEFAULT)
    ========================================================================== */
 .category-bg {
     position: absolute;
     top: 0;
-    left: -30%; /* Larghezza extra per evitare spazi neri durante il movimento */
-    width: 160%;
+    left: -35%; 
+    width: 170%;
     height: 100%;
-    background-image: var(--bg-image); /* Prende l'immagine impostata in HTML */
+    background-image: var(--bg-image); 
     background-size: cover;
     background-position: center;
-    transform: skewX(35deg) scale(2); /* Raddrizza l'immagine e la ingrandisce */
+    transform: skewX(35deg) scale(2); 
     
-    /* Effetto Frosted Glass iniziale: sfuocato e scuro */
-    filter: blur(15px) brightness(0.4) saturate(80%);
+    /* Regolati: Meno scuri (brightness 0.65) e più saturi nello stato sfocato */
+    filter: blur(14px) brightness(0.65) saturate(95%);
     
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
                 filter 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
     z-index: 1;
 }
 
-/* RIVELAZIONE IN FADE-IN (Al passaggio del cursore) */
 .category-box:hover .category-bg {
-    transform: skewX(35deg) scale(1.8); /* Diminuisce leggermente lo zoom */
-    filter: blur(0px) brightness(0.85) saturate(100%); /* Diventa nitida e accesa */
+    transform: skewX(35deg) scale(1.75); 
+    filter: blur(0px) brightness(0.9) saturate(110%); /* Piena nitidezza e splendore */
 }
 
-/* Gradienti protettivi per garantire la leggibilità dei testi bianchi */
+/* Overlay protettivo ammorbidito */
 .overlay-gradient {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 100%);
     transition: background 0.6s ease;
     z-index: 2;
 }
 
 .category-box:hover .overlay-gradient {
-    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 100%);
 }
 
 /* ==========================================================================
-   DIVISORE STILE "LIQUID GLASS" (Glow Cristallino)
+   DIVISORE STILE "LIQUID GLASS" (MODIFICATO: TAGLIO CURVO E MORBIDO)
    ========================================================================== */
 .category-box:not(:last-child)::after {
     content: '';
     position: absolute;
-    top: 0;
-    right: -1px; /* Si allinea perfettamente sul taglio inclinato */
-    width: 2px;
-    height: 100%;
+    top: -5%;
+    right: -10px; /* Centrato a cavallo del taglio */
+    width: 16px; /* Spessore del bordo del vetro */
+    height: 110%;
     
-    /* Gradiente verticale: la linea sfuma a zero alle estremità superiore e inferiore */
+    /* Riflesso sfumato verticale */
     background: linear-gradient(
         180deg, 
         rgba(255, 255, 255, 0) 0%, 
-        rgba(255, 255, 255, 0.6) 15%, 
-        rgba(255, 255, 255, 0.9) 50%, 
-        rgba(255, 255, 255, 0.6) 85%, 
+        rgba(255, 255, 255, 0.2) 15%, 
+        rgba(255, 255, 255, 0.65) 50%, 
+        rgba(255, 255, 255, 0.2) 85%, 
         rgba(255, 255, 255, 0) 100%
     );
     
-    /* Effetto riflesso luminoso tipico del vetro liquido */
+    /* La magia del bordo curvo: l'arco ellittico rende il taglio non netta ma ad arco morbido */
+    border-radius: 100% / 50%; 
+    
+    /* Bagliore vitreo (Glow liquido) */
     box-shadow: 
-        0 0 8px rgba(255, 255, 255, 0.4),
-        0 0 15px rgba(255, 255, 255, 0.15);
+        0 0 10px rgba(255, 255, 255, 0.25),
+        inset -2px 0 6px rgba(255, 255, 255, 0.4);
+        
+    /* Il blur leggero elimina la rigidità dei pixel e simula il vetro curvato e levigato */
+    filter: blur(1.2px); 
         
     z-index: 4;
     pointer-events: none;
-    transition: opacity 0.5s ease;
 }
 
 /* ==========================================================================
-   CONTENUTO TESTUALE
+   CONTENUTO TESTUALE (SENZA NUMERI)
    ========================================================================== */
 .category-content {
     position: relative;
-    transform: skewX(35deg); /* Raddrizza i testi */
+    transform: skewX(35deg); 
     text-align: center;
-    padding: 30px;
+    padding: 40px;
     z-index: 3;
     pointer-events: none;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.cat-number {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    display: block;
-    color: rgba(255, 255, 255, 0.25);
-    margin-bottom: 8px;
-    transition: color 0.4s ease;
-}
-
 .category-box h3 {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-    margin-bottom: 8px;
-    text-shadow: 0 4px 12px rgba(0,0,0,0.6);
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem); /* Leggermente ingranditi visti i nuovi spazi */
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.7);
 }
 
 .category-box p {
-    font-size: 0.9rem;
-    color: #cccccc;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    font-size: 0.95rem;
+    color: #dddddd;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
 }
 
-/* ANIMAZIONE HOVER COMPLESSIVA */
+/* ANIMAZIONE HOVER */
 .category-box:hover {
-    flex: 1.6; /* Si allarga magnificamente */
+    flex: 1.7; 
     z-index: 10;
-}
-
-.category-box:hover .cat-number {
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
 }
 
 /* ==========================================================================
@@ -235,28 +227,28 @@ body {
     }
 
     .category-box {
-        transform: none; /* Disattiva l'inclinazione su smartphone */
+        transform: none; 
         margin: 0 !important;
         padding: 0 !important;
-        height: 200px;
-        border-radius: 12px;
+        height: 240px; /* Più grandi anche su mobile */
+        border-radius: 16px;
         border: 1px solid #222;
     }
 
     .category-bg {
-        transform: scale(1.2); /* Sfondo dritto */
+        transform: scale(1.2); 
         left: 0;
         width: 100%;
-        filter: blur(10px) brightness(0.4);
+        filter: blur(8px) brightness(0.65);
     }
 
     .category-box:hover .category-bg {
         transform: scale(1.1);
-        filter: blur(0px) brightness(0.7);
+        filter: blur(0px) brightness(0.8);
     }
 
     .category-content {
-        transform: none; /* Testo dritto */
+        transform: none; 
     }
     
     .category-box:hover {
@@ -264,20 +256,21 @@ body {
         transform: scale(1.02);
     }
 
-    /* Il vetro liquido diventa un divisore orizzontale su mobile */
+    /* Divisore liquido orizzontale per mobile */
     .category-box:not(:last-child)::after {
-        width: 100%;
-        height: 2px;
+        width: 90%;
+        height: 16px;
         top: auto;
-        bottom: -1px;
-        right: 0;
+        bottom: -15px;
+        right: 5%;
+        border-radius: 50% / 100%;
         background: linear-gradient(
             90deg, 
             rgba(255, 255, 255, 0) 0%, 
-            rgba(255, 255, 255, 0.5) 50%, 
+            rgba(255, 255, 255, 0.4) 50%, 
             rgba(255, 255, 255, 0) 100%
         );
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     }
 }
 
