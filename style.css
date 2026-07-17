@@ -20,12 +20,13 @@ body {
 }
 
 /* ==========================================================================
-   HEADER & LOGO DI NAVIGAZIONE GLOBALE (GM)
+   HEADER & LOGO DI NAVIGAZIONE GLOBALE
    ========================================================================== */
 .hero {
     text-align: center;
     padding: 60px 20px 40px 20px;
     position: relative;
+    z-index: 10;
 }
 
 .custom-title {
@@ -49,45 +50,45 @@ body {
     text-transform: uppercase;
 }
 
-/* Contenitore del logo (mantiene la posizione e l'animazione di hover) */
+/* Logo di navigazione */
 .global-back-logo {
     position: absolute;
-    top: 30px;     /* Leggermente più basso per allinearsi meglio */
-    right: 40px;    /* Distanza pulita dal bordo destro */
+    top: 30px;
+    right: 40px;
     z-index: 100;
     display: inline-block;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
                 filter 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Regole per il Logo in formato Immagine */
 .logo-img {
-    height: 64px; /* Rimpicciolito al massimo per essere minimalista */
-    width: auto;  /* Mantiene le proporzioni originali */
+    height: 18px;
+    width: auto;
     display: block;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); 
 }
 
-/* Animazione morbida sull'hover del logo */
 .global-back-logo:hover {
-    transform: scale(1.08); /* Effetto zoom molto discreto */
+    transform: scale(1.08);
     filter: brightness(1.25) drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
 }
 
 /* ==========================================================================
-   CONTENITORE CATEGORIE (CINEMATIC WIDE)
+   CONTENITORE CATEGORIE
    ========================================================================== */
 .portfolio-container {
     max-width: 1440px;
     width: 95%;
     margin: 0 auto;
     padding: 10px 0;
+    position: relative;
+    z-index: 10;
 }
 
 .categories-wrapper {
     display: flex;
     width: 100%;
-    height: 420px; /* Altezza di default preservata */
+    height: 420px;
     border: 1px solid #161616;
     border-radius: 20px;
     overflow: hidden; 
@@ -137,18 +138,18 @@ body {
 }
 
 /* ==========================================================================
-   IMMAGINI DI SFONDO & LUMINOSITÀ
+   IMMAGINI DI SFONDO (DE-ZOOM MASSIMO)
    ========================================================================== */
 .category-bg {
     position: absolute;
     top: 0;
-    left: -20%; /* Ridotto dal -35% per ridurre il ritaglio */
-    width: 140%; /* Ridotto dal 170% per mostrare più dettagli dell'immagine */
+    left: -20%; 
+    width: 140%;
     height: 100%;
     background-image: var(--bg-image); 
     background-size: cover;
     background-position: center;
-    transform: skewX(35deg) scale(1.2); /* De-zoomato (prima era scale(2)) */
+    transform: skewX(35deg) scale(1.2); 
     
     filter: blur(14px) brightness(0.65) saturate(95%);
     transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -157,7 +158,6 @@ body {
 }
 
 .category-box:hover .category-bg {
-    /* Massimo de-zoom possibile: quasi 1:1 con l'immagine originale */
     transform: skewX(35deg) scale(1.1); 
     filter: blur(0px) brightness(0.9) saturate(110%);
 }
@@ -257,19 +257,36 @@ body {
 }
 
 /* ==========================================================================
-   PAGINE VUOTE (LEAF PAGES)
+   PAGINE DETTAGLIO (LEAF PAGES) CON SFONDO PERSONALIZZABILE
    ========================================================================== */
 .leaf-page {
+    position: relative;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: radial-gradient(circle at center, #111111 0%, #000000 100%);
-    position: relative;
+    justify-content: space-between;
+    overflow-x: hidden;
+}
+
+/* Sfondo sfocato ambientale per i singoli progetti */
+.leaf-bg {
+    position: absolute;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    /* Sfocatura molto profonda ed effetto oscurato per far emergere i testi bianchi */
+    filter: blur(50px) brightness(0.22) saturate(75%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .leaf-content {
+    position: relative;
+    z-index: 10;
     text-align: center;
     flex-grow: 1;
     display: flex;
@@ -293,7 +310,7 @@ body {
 
 .leaf-status {
     font-family: 'Space Grotesk', sans-serif;
-    color: #555555;
+    color: #666;
     font-size: 1rem;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -383,4 +400,6 @@ footer {
     color: #444;
     font-size: 0.8rem;
     letter-spacing: 1px;
+    position: relative;
+    z-index: 10;
 }
