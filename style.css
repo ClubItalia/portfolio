@@ -403,3 +403,335 @@ footer {
     position: relative;
     z-index: 10;
 }
+/* ==========================================================================
+   STRUTTURE SPECIFICHE PER LE PAGINE DI DETTAGLIO (THE TOWER)
+   ========================================================================== */
+.tower-page-layout {
+    background: #000000 !important; /* Forza lo sfondo nero di base per la transizione del fade */
+}
+
+.tower-content-wrapper {
+    width: 100%;
+    position: relative;
+    z-index: 10;
+}
+
+/* 1. Stile Header con Blur e Fade */
+.tower-hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tower-hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    filter: blur(22px) brightness(0.45); /* Effetto sfocatura programmato */
+    z-index: 1;
+}
+
+.tower-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente per fare il fade fluido verso il nero assoluto del body */
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 25%, #000000 100%);
+    z-index: 2;
+}
+
+.tower-logo-container {
+    position: relative;
+    z-index: 3;
+}
+
+.tower-project-logo {
+    max-width: 260px;
+    height: auto;
+    filter: drop-shadow(0 4px 20px rgba(0, 76, 84, 0.6));
+}
+
+/* 2. Sezioni Interne e Titoli */
+.tower-section {
+    max-width: 1140px;
+    width: 90%;
+    margin: 70px auto;
+}
+
+.tower-section .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    /* Sfumatura coerente con la palette del sito dal bianco al verde acqua */
+    background: linear-gradient(180deg, #ffffff 0%, #004C54 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -1px;
+}
+
+/* Punti Chiave */
+.tower-bullets {
+    list-style: none;
+    display: grid;
+    gap: 25px;
+}
+
+.tower-bullets li {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #cccccc;
+    position: relative;
+    padding-left: 25px;
+}
+
+.tower-bullets li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: #004C54;
+    font-size: 1.2rem;
+}
+
+.tower-bullets strong {
+    color: #ffffff;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+}
+
+/* 3. Mosaico World Gallery (16:9) */
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.mosaic-item {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid #141414;
+    cursor: pointer;
+    background: #080808;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+                box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.mosaic-item:hover img {
+    transform: scale(1.05);
+}
+
+.mosaic-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 76, 84, 0.45);
+}
+
+.mosaic-item.wide { grid-column: span 3; }
+.mosaic-item.normal { grid-column: span 2; }
+
+/* Lightbox Modal */
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.96);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+.lightbox-modal img {
+    max-width: 88%;
+    max-height: 85%;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 76, 84, 0.5);
+    animation: fadeInLightbox 0.3s ease;
+}
+
+@keyframes fadeInLightbox {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* 4. YouTube Embed dinamico */
+.video-wrapper-container {
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #161616;
+    background: #000;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+    transition: max-width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.6s ease,
+                box-shadow 0.6s ease;
+}
+
+.video-wrapper-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-overlay-trigger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 76, 84, 0.1);
+    z-index: 5;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.video-overlay-trigger:hover {
+    background: rgba(0, 76, 84, 0.22);
+}
+
+.play-hint-btn {
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    padding: 14px 24px;
+    border-radius: 30px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* Stato ingrandito del video */
+.video-wrapper-container.video-expanded {
+    max-width: 1140px;
+    border-color: #004C54;
+    box-shadow: 0 20px 50px rgba(0, 76, 84, 0.3);
+}
+
+/* 5. Griglia Flyer (Format Poster 3:4) */
+.flyer-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.flyer-item {
+    aspect-ratio: 3/4; 
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #141414;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.flyer-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flyer-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.12);
+}
+
+/* 6. Note Personali */
+.tower-notes {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #b5b5b5;
+    text-align: justify;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+}
+
+/* Responsive per schermi Tablet e Mobile */
+@media (max-width: 900px) {
+    .mosaic-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .mosaic-item.wide, .mosaic-item.normal {
+        grid-column: span 2;
+    }
+    .flyer-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .flyer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .tower-hero {
+        height: 40vh;
+        min-height: 300px;
+    }
+    .tower-section {
+        margin: 45px auto;
+    }
+}
+/* ==========================================================================
+   SEZIONE LINK ESTERNO (THE TOWER)
+   ========================================================================== */
+.tower-link-section {
+    text-align: center;
+    margin: 80px auto 40px auto !important;
+}
+
+.tower-more-link {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem); /* Font notevolmente più grande e responsivo */
+    font-weight: 700;
+    color: #8a8a8a;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.tower-more-link a {
+    color: #004C54; /* Colore verde acqua scuro del brand */
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                text-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.tower-more-link a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    text-shadow: 0 0 20px rgba(0, 76, 84, 0.9), 0 0 40px rgba(0, 76, 84, 0.4);
+}

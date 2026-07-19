@@ -10,23 +10,177 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-	
-	<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="leaf-page">
+<body class="leaf-page tower-page-layout">
 
+    <!-- 1. HEADER IMMERSIVO: Immagine locale sfocata con fade al nero e logo al centro -->
+    <header class="tower-hero" style="--hero-img: url('images/the-tower-hero.jpg');">
+        <div class="tower-logo-container">
+            <img src="images/the-tower-logo.png" alt="The Tower Logo" class="tower-project-logo">
+        </div>
+    </header>
+
+    <!-- Logo di navigazione globale per tornare alla home -->
     <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
-    <img src="images/logo.png" alt="Logo GM" class="logo-img">
-</a>
+        <img src="images/logo.png" alt="Logo GM" class="logo-img">
+    </a>
 
-    <main class="leaf-content">
-        <h1 class="leaf-title">The Tower</h1>
-        <p class="leaf-status">Progetto in arrivo</p>
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="tower-content-wrapper">
+        
+        <!-- 2. PUNTI CHIAVE (Testo tradotto e ottimizzato per portfolio) -->
+        <section class="tower-section">
+            <h2 class="section-title">The Project</h2>
+            <ul class="tower-bullets">
+                <li>
+                    <strong>Collettivo Artistico Digitale:</strong> Un ecosistema sinergico focalizzato sulla creazione pura, sulla sperimentazione radicale e sulla condivisione di una visione visiva comune.
+                </li>
+                <li>
+                    <strong>Linguaggio Espressivo Unificato:</strong> Una convergenza multidisciplinare in grado di far dialogare mondi paralleli: musica, identità visive, spatial design, performance e storytelling immersivo.
+                </li>
+                <li>
+                    <strong>Competenze Integrate a Larga Scala:</strong> Un'unione coesa che fonde audio design, DJ culture, modellazione 3D, creazione di avatar, visual in tempo reale e sistemi interattivi complessi all'interno di grandi produzioni digitali.
+                </li>
+                <li>
+                    <strong>Direzione Creativa:</strong> Interamente ideato, sviluppato e diretto da me.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 3. WORLD MADE BY ME GALLERY: Mosaico fotografico 16:9 con Lightbox -->
+        <section class="tower-section">
+            <h2 class="section-title">World made by me Gallery</h2>
+            <!-- Composizione a mosaico bilanciata con 7 foto locali (16:9) -->
+            <div class="mosaic-gallery">
+                <div class="mosaic-item wide" onclick="openLightbox('images/world-1.jpg')">
+                    <img src="images/world-1.jpg" alt="World Detail 1">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/world-2.jpg')">
+                    <img src="images/world-2.jpg" alt="World Detail 2">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/world-3.jpg')">
+                    <img src="images/world-3.jpg" alt="World Detail 3">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/world-4.jpg')">
+                    <img src="images/world-4.jpg" alt="World Detail 4">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/world-5.jpg')">
+                    <img src="images/world-5.jpg" alt="World Detail 5">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/world-6.jpg')">
+                    <img src="images/world-6.jpg" alt="World Detail 6">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/world-7.jpg')">
+                    <img src="images/world-7.jpg" alt="World Detail 7">
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERFACCIA LIGHTBOX MODAL (Si attiva al click) -->
+        <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+            <img id="lightbox-img" src="" alt="Enlarged view">
+        </div>
+
+        <!-- 4. YOUTUBE EMBED INTERATTIVO: Muto e minimal di default, audio e zoom al click -->
+        <section class="tower-section">
+            <h2 class="section-title">Audiovisual Performance</h2>
+            <div class="video-wrapper-container" id="video-container">
+                <!-- Overlay che intercetta il primo click per ingrandire e attivare l'audio -->
+                <div class="video-overlay-trigger" id="video-overlay" onclick="activateVideo()">
+                    <div class="play-hint-btn">Espandi ed Attiva Audio</div>
+                </div>
+                <!-- Embed YouTube al minuto esatto (1491s), senza controlli ed in loop -->
+                <iframe id="promo-video" src="https://www.youtube.com/embed/N6f0uhV8tu8?start=1491&autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=N6f0uhV8tu8" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- 5. SEZIONE FLYER: 5 Foto in formato poster verticale ed elegante -->
+        <section class="tower-section">
+            <h2 class="section-title">Project Flyers</h2>
+            <div class="flyer-grid">
+                <div class="flyer-item" onclick="openLightbox('images/flyer-1.jpg')">
+                    <img src="images/flyer-1.jpg" alt="Flyer Artwork 1">
+                </div>
+                <div class="flyer-item" onclick="openLightbox('images/flyer-2.jpg')">
+                    <img src="images/flyer-2.jpg" alt="Flyer Artwork 2">
+                </div>
+                <div class="flyer-item" onclick="openLightbox('images/flyer-3.jpg')">
+                    <img src="images/flyer-3.jpg" alt="Flyer Artwork 3">
+                </div>
+                <div class="flyer-item" onclick="openLightbox('images/flyer-4.jpg')">
+                    <img src="images/flyer-4.jpg" alt="Flyer Artwork 4">
+                </div>
+                <div class="flyer-item" onclick="openLightbox('images/flyer-5.jpg')">
+                    <img src="images/flyer-5.jpg" alt="Flyer Artwork 5">
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. NOTE PERSONALI (Riscritte in linguaggio artistico professionale) -->
+        <section class="tower-section">
+            <h2 class="section-title">Artist Statement</h2>
+            <p class="tower-notes">
+                The Tower rappresenta l'espressione più pura e autentica della mia visione artistica, un ecosistema digitale in cui convergono narrazione sperimentale, spatial design e interazione sensoriale. È concepito come una piattaforma concettuale di condivisione estetica ed emotiva per chiunque ne attraversi i confini visivi. Per dare vita a questa architettura ho attinto a suggestioni intimamente personali, traducendo paure archetipiche in motori creativi: la vertigine dell'infinito, la maestosità di spazi sconfinati che ridimensionano la presenza umana e, per contrasto, la tensione psicologica di ambienti claustrofobici. L'intero impianto visivo si muove in un rigoroso punto di equilibrio tra iperrealismo e geometrie impossibili, sfruttando appieno la potenza immersiva della Realtà Virtuale (VR) per scardinare e ridefinire i limiti della percezione fisica.
+            </p>
+        </section>
+
+    </main>
+	
+	<!-- 6. NOTE PERSONALI (Artist Statement) -->
+        <section class="tower-section">
+            <h2 class="section-title">Artist Statement</h2>
+            <p class="tower-notes">
+                The Tower rappresenta l'espressione più pura...
+            </p>
+        </section>
+
+        <!-- 7. LINK ESTERNO (AGGIUNTO) -->
+        <section class="tower-section tower-link-section">
+            <p class="tower-more-link">
+                di più su <a href="https://thetowervr.com" target="_blank" rel="noopener">thetowervr.com</a>
+            </p>
+        </section>
+
     </main>
 
     <footer>
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
+    <footer>
+        <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
+    </footer>
+
+    <!-- LOGICA JAVASCRIPT PER LE INTERAZIONI -->
+    <script>
+        // Funzioni per il Lightbox (Galleria e Flyer)
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            // Chiude la finestra SOLO se si clicca fuori dall'immagine (sullo sfondo nero)
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+
+        // Funzione per sbloccare l'audio e allargare il video al click
+        function activateVideo() {
+            const container = document.getElementById('video-container');
+            const iframe = document.getElementById('promo-video');
+            const overlay = document.getElementById('video-overlay');
+            
+            container.classList.add('video-expanded');
+            overlay.style.display = 'none';
+            
+            // Ricarica l'Iframe forzando lo smascheramento dei controlli e attivando l'audio (mute=0)
+            iframe.src = "https://www.youtube.com/embed/N6f0uhV8tu8?start=1491&autoplay=1&mute=0&controls=1&modestbranding=1&rel=0";
+        }
+    </script>
 </body>
 </html>
