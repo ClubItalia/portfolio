@@ -33,7 +33,6 @@
                 Il mio percorso accademico si è focalizzato intensamente sullo studio dello spazio tridimensionale e sull'approfondimento delle tecniche di modellazione 3D. In questo ambiente di ricerca ho sviluppato la capacità di gestire flussi di lavoro digitali complessi, imparando a padroneggiare la volumetria, la gestione delle mesh e l'illuminazione per tradurre concept astratti in asset virtuali precisi e funzionali.
             </p>
             
-            <!-- Immagine singola grande blendata sullo sfondo -->
             <div class="blended-render-container" onclick="openLightbox('images/studio-3d.jpg')">
                 <img src="images/studio-3d.jpg" alt="Esercizio Modellazione 3D Accademia" class="blended-png-render font-studi-img">
             </div>
@@ -46,17 +45,17 @@
                 Esplorazioni registiche e narrative attraverso il mezzo cinematografico digitale. Questa sezione raccoglie le mie produzioni video in cui ho curato autonomamente la direzione artistica, la composizione delle inquadrature e il montaggio, sperimentando sul ritmo visivo per dare vita a racconti immersivi e d'atmosfera.
             </p>
             
-            <!-- Griglia a 2 colonne per i video con UI minimale -->
+            <!-- Griglia Video con gli ID YouTube inseriti direttamente -->
             <div class="video-portfolio-grid">
-                <!-- Sostituisci ID_VIDEO_1 con l'ID effettivo del tuo video YouTube (es. dQw4w9WgXcQ) -->
-                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'CsNQLngul5U')">
+                <!-- Video 1: yjYKh2ViSY4 -->
+                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'yjYKh2ViSY4')">
                     <div class="video-thumbnail-overlay" style="background-image: url('images/thumb-corto1.jpg');">
                         <div class="play-icon-btn"></div>
                     </div>
                 </div>
                 
-                <!-- Sostituisci ID_VIDEO_2 con il secondo ID video YouTube -->
-                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'yjYKh2ViSY4')">
+                <!-- Video 2: CsNQLngul5U -->
+                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'CsNQLngul5U')">
                     <div class="video-thumbnail-overlay" style="background-image: url('images/thumb-corto2.jpg');">
                         <div class="play-icon-btn"></div>
                     </div>
@@ -71,7 +70,6 @@
                 Un progetto visivo strutturato attorno al tema della diversità e presentato sotto forma di concorso fotografico concettuale. L'opera si basa su un'illusione ottica geometrica realizzata senza l'ausilio di rendering automatici: combinando due scatti statici catturati dalla medesima identica angolazione, un posizionamento millimetrico dello specchio e una successiva fusione digitale in Photoshop, ho generato una distorsione della realtà in cui il pezzo degli scacchi riflesso muta la propria natura rispetto all'originale, sfidando la percezione dell'osservatore.
             </p>
             
-            <!-- Immagine singola grande per lo scatto fotografico -->
             <div class="blended-render-container" onclick="openLightbox('images/scacchi-diversita.jpg')">
                 <img src="images/scacchi-diversita.jpg" alt="Illusione ottica scacchi diversità" class="blended-png-render font-studi-img">
             </div>
@@ -79,12 +77,12 @@
 
     </main>
 
-    <!-- INTERFACCIA LIGHTBOX GENERALE (PER LE FOTO) -->
+    <!-- LIGHTBOX IMMAGINI -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
         <img id="lightbox-img" src="" alt="Enlarged view">
     </div>
 
-    <!-- LIGHTBOX MULTIMEDIALE DEDICATO AI VIDEO ZOOMATI -->
+    <!-- LIGHTBOX VIDEO ZOOMATO -->
     <div id="video-lightbox" class="video-lightbox-modal" onclick="closeVideoLightbox(event)">
         <div class="video-lightbox-content">
             <div id="video-player-container"></div>
@@ -95,9 +93,7 @@
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
-    <!-- Script combinato per gestione gallerie e logica Player YouTube con Audio Attivo al click -->
     <script>
-        // Gestione Lightbox Immagini
         function openLightbox(src) {
             const modal = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
@@ -111,7 +107,7 @@
             }
         }
 
-        // Caricamento asincrono delle API di YouTube per gestire audio e zoom
+        // Caricamento asincrono API YouTube
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -120,24 +116,23 @@
         var player;
 
         function playAndZoomVideo(element, videoId) {
-            const videoModal = document.getElementById('video-video-lightbox' || 'video-lightbox');
+            const videoModal = document.getElementById('video-lightbox');
             videoModal.style.display = 'flex';
             
-            // Crea il player con UI ridotta al minimo (controls=0 nasconde i controlli, modestbranding pulisce il logo)
             player = new YT.Player('video-player-container', {
                 height: '100%',
                 width: '100%',
                 videoId: videoId,
                 playerVars: {
                     'autoplay': 1,
-                    'controls': 1,          /* Lasciato a 1 solo nello zoom per permettere la pausa, ma pulito */
+                    'controls': 1,
                     'modestbranding': 1,
                     'rel': 0,
                     'showinfo': 0
                 },
                 events: {
                     'onReady': function(event) {
-                        event.target.unMute(); // Forza l'attivazione dell'audio al click dello zoom
+                        event.target.unMute(); 
                         event.target.playVideo();
                     }
                 }
@@ -145,11 +140,10 @@
         }
 
         function closeVideoLightbox(event) {
-            // Chiude il lightbox solo se clicchi sullo sfondo nero
             if (event.target.className === 'video-lightbox-modal' || event.target.className === 'video-lightbox-content') {
                 document.getElementById('video-lightbox').style.display = 'none';
                 if (player && player.destroy) {
-                    player.destroy(); // Distrugge il player per fermare l'audio definitivamente
+                    player.destroy();
                 }
             }
         }
