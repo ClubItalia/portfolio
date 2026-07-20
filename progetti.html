@@ -3,30 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tower - Giovanni Massa</title>
+    <title>Progetti Personali - Giovanni Massa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-	
-	<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="leaf-page">
+<body class="leaf-page progetti-page-layout">
 
+    <!-- HEADER IMMERSIVO: Immagine nitida con fade al nero rapido sul fondo -->
+    <header class="glass-hero" style="--hero-img: url('images/progetti-hero.jpg');">
+    </header>
+
+    <!-- Logo di navigazione globale per tornare alla home -->
     <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
-    <img src="images/logo.png" alt="Logo GM" class="logo-img">
-</a>
+        <img src="images/logo.png" alt="Logo GM" class="logo-img">
+    </a>
 
-    <main class="leaf-content">
-        <h1 class="leaf-title">The Tower</h1>
-        <p class="leaf-status">Progetto in arrivo</p>
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="tower-content-wrapper">
+        
+        <!-- SEZIONE 1: AVATAR PERSONALE -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Avatar Personale</h2>
+            <p class="tower-notes">
+                Il mio percorso nel character design e nella modellazione 3D ha avuto inizio con lo sviluppo del mio avatar personale. Attraverso molteplici iterazioni ed evoluzioni tecniche, ho lavorato per preservare e consolidare nel tempo una serie di tratti stilistici distintivi e fortemente caratterizzanti, garantendo un'identità visiva coerente, riconoscibile ed iconica in ciascuna delle sue versioni.
+            </p>
+            
+            <!-- Vetrina per singola foto PNG con trasparenza -->
+            <div class="single-render-container">
+                <div class="render-item" onclick="openLightbox('images/avatar-personale.png')">
+                    <img src="images/avatar-personale.png" alt="Avatar Personale Render" class="png-render">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SEZIONE 2: AVATAR PUBBLICI E IN VENDITA -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Avatar: Pubblici & Commerciali</h2>
+            
+            <!-- Sub-sezione: Pubblici (Ridotta a 3 foto) -->
+            <div class="subsection-block">
+                <h3 class="subsection-title">Modelli Pubblici (Free Access)</h3>
+                <p class="tower-notes">
+                    Una collezione di modelli tridimensionali nati come esercizio di stile, studio anatomico e ottimizzazione dei pesi, successivamente rilasciati in modalità free-access all'interno del metaverso di VRChat per l'utilizzo libero da parte della community.
+                </p>
+                <!-- Galleria a 3 foto (1 riga da 3 elementi 'normal') -->
+                <div class="mosaic-gallery">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/public-1.jpg')">
+                        <img src="images/public-1.jpg" alt="Public Avatar 1">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/public-2.jpg')">
+                        <img src="images/public-2.jpg" alt="Public Avatar 2">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/public-3.jpg')">
+                        <img src="images/public-3.jpg" alt="Public Avatar 3">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sub-sezione: In Vendita -->
+            <div class="subsection-block text-space-top">
+                <h3 class="subsection-title">Modelli in Vendita (Store Releases)</h3>
+                <p class="tower-notes">
+                    Progetti commerciali completati nel corso del 2024. Questi asset nascono come diretta evoluzione e sintesi di tutte le sperimentazioni tecniche ed estetiche maturate in precedenza sui modelli personali e pubblici, ottimizzati per offrire massima stabilità prestazionale e una resa visiva premium.
+                </p>
+                <!-- Galleria a 2 foto (1 riga da 2 elementi 'wide') -->
+                <div class="mosaic-gallery">
+                    <div class="mosaic-item wide" onclick="openLightbox('images/shop-1.jpg')">
+                        <img src="images/shop-1.jpg" alt="Commercial Avatar 1">
+                    </div>
+                    <div class="mosaic-item wide" onclick="openLightbox('images/shop-2.jpg')">
+                        <img src="images/shop-2.jpg" alt="Commercial Avatar 2">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SEZIONE 3: MONDI AVATAR PUBBLICI -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Mondi Avatar Pubblici</h2>
+            <!-- Galleria a 4 foto (2 righe da 2 elementi 'wide' oppure gestita a griglia bilanciata) -->
+            <div class="mosaic-gallery grid-4-elements">
+                <div class="mosaic-item" onclick="openLightbox('images/world-1.jpg')">
+                    <img src="images/world-1.jpg" alt="Public World 1">
+                </div>
+                <div class="mosaic-item" onclick="openLightbox('images/world-2.jpg')">
+                    <img src="images/world-2.jpg" alt="Public World 2">
+                </div>
+                <div class="mosaic-item" onclick="openLightbox('images/world-3.jpg')">
+                    <img src="images/world-3.jpg" alt="Public World 3">
+                </div>
+                <div class="mosaic-item" onclick="openLightbox('images/world-4.jpg')">
+                    <img src="images/world-4.jpg" alt="Public World 4">
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SEZIONE 4: KUNI STRUCTURE N°1 -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Kuni Structure N°1</h2>
+            <p class="tower-notes">
+                Un'installazione virtuale site-specific realizzata in occasione del festival "Santa Venere - Media Art Meeting". Il progetto si sviluppa attorno a una minimale ed evocativa struttura sottomarina che custodisce un maestoso albero sintetico al proprio centro. Uno spazio etereo e sommerso, concepito come un rifugio per la meditazione e il rilassamento mentale, o forse come una prigione concettuale isolata dal resto del mondo reale.
+            </p>
+            <!-- Galleria a 2 foto (1 riga da 2 elementi 'wide') -->
+            <div class="mosaic-gallery">
+                <div class="mosaic-item wide" onclick="openLightbox('images/kuni-1.jpg')">
+                    <img src="images/kuni-1.jpg" alt="Kuni Structure Render 1">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/kuni-2.jpg')">
+                    <img src="images/kuni-2.jpg" alt="Kuni Structure Render 2">
+                </div>
+            </div>
+        </section>
+
     </main>
+
+    <!-- INTERFACCIA LIGHTBOX MODAL -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
 
     <footer>
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
+    <script>
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
