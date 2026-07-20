@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studi - Giovanni Massa</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body class="leaf-page progetti-page-layout">
+
+    <!-- HEADER IMMERSIVO: Fade netto al nero sul fondo -->
+    <header class="glass-hero" style="--hero-img: url('images/studi-hero.jpg');">
+    </header>
+
+    <!-- Navigazione per tornare alla home -->
+    <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
+        <img src="images/logo.png" alt="Logo GM" class="logo-img">
+    </a>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="tower-content-wrapper">
+        
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Percorso di Studi</h2>
+            
+            <!-- PARTE 1: ACCADEMIA (Ex Altro/Università) -->
+            <div class="subsection-block">
+                <h3 class="subsection-title">Accademia Albertina di Belle Arti</h3>
+                <p class="tower-notes">
+                    I due anni di specializzazione e ricerca a Torino hanno rappresentato il punto di passaggio fondamentale verso la terza dimensione. In questo contesto ho assimilato le metodologie plastiche e i fondamenti di modellazione geometrica su Blender, gettando le basi teoriche e pratiche necessarie per la successiva transizione verso lo spatial design e gli ambienti VR.
+                </p>
+                <!-- Galleria Università (Esempio a 3 foto) -->
+                <div class="mosaic-gallery">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-1.jpg')">
+                        <img src="images/uni-1.jpg" alt="Accademia Albertina Progetto 1">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-2.jpg')">
+                        <img src="images/uni-2.jpg" alt="Accademia Albertina Progetto 2">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-3.jpg')">
+                        <img src="images/uni-3.jpg" alt="Accademia Albertina Progetto 3">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PARTE 2: SUPERIORI (Ex Archivio/Superiori) -->
+            <div class="subsection-block text-space-top">
+                <h3 class="subsection-title">Liceo Artistico</h3>
+                <p class="tower-notes">
+                    Il nucleo originario della mia produzione. Gli anni del Liceo Artistico a Nuoro sono stati il laboratorio in cui ho convertito la passione nativa per il disegno tradizionale in discipline digitali e visive, focalizzandomi intensamente sulla progettazione grafica, sulla fotografia analogica/digitale e sullo studio del linguaggio video (videomaking).
+                </p>
+                <!-- Galleria Superiori (Esempio a 3 foto) -->
+                <div class="mosaic-gallery">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-1.jpg')">
+                        <img src="images/liceo-1.jpg" alt="Liceo Artistico Archivio 1">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-2.jpg')">
+                        <img src="images/liceo-2.jpg" alt="Liceo Artistico Archivio 2">
+                    </div>
+                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-3.jpg')">
+                        <img src="images/liceo-3.jpg" alt="Liceo Artistico Archivio 3">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <footer>
+        <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
+    </footer>
+
+    <script>
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
