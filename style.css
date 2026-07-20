@@ -880,81 +880,79 @@ footer {
 /* ==========================================================================
    SEZIONE BIOGRAFIA (MI RACCONTO - INDEX)
    ========================================================================== */
+/* ==========================================================================
+   SEZIONE BIOGRAFIA (MI RACCONTO - VERSIONE COMPATTA A CARD FLUTTUANTE)
+   ========================================================================== */
 .about-section {
-    width: 100%;
-    padding: 100px 0;
-    border-top: 1px solid #141414;
-    background: #000000;
+    max-width: 1200px;         /* Larghezza massima della card */
+    width: 92%;                /* Flessibilità su schermi più piccoli */
+    margin: 80px auto;         /* Centrata nella pagina, staccata dai blocchi sopra/sotto per mostrare le stondature */
+    
+    /* SFONDO SEMI-TRASPARENTE E CORNER arrotondati sull'intero blocco */
+    background: rgba(15, 15, 15, 0.4); 
+    border-radius: 24px;       /* Stondatura pronunciata ed elegante */
+    padding: 60px 50px;        /* Spazio interno tra i bordi della card e il contenuto */
+    
+    /* EFFETTO VETRO E BORDO DI DEFINIZIONE */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .about-container {
-    max-width: 1140px;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Layout asimmetrico moderno */
-    gap: 50px;
+    grid-template-columns: 1fr 2fr; /* Titolo a sinistra (1 parte), Testo a destra (2 parti) */
+    gap: 60px;
     align-items: top;
 }
 
 .about-title {
     font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-size: clamp(2rem, 4vw, 3rem);
     text-transform: uppercase;
     font-weight: 800;
-    line-height: 1;
+    line-height: 1.1;
     letter-spacing: -2px;
-    /* Sfuma dal bianco all'antracite */
-    background: linear-gradient(180deg, #ffffff 0%, #444444 100%);
+    background: linear-gradient(180deg, #ffffff 0%, #555555 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     position: sticky;
-    top: 40px; /* Rimane bloccato a lato durante lo scroll su desktop */
+    top: 40px;
 }
 
+/* Pulito: il blocco di testo ora non ha sfondi propri, eredita quello della sezione */
 .about-text-block {
     display: flex;
     flex-direction: column;
     gap: 25px;
-    
-    /* SFONDO: Nero meno opaco (semi-trasparente). 
-       Il valore 0.5 indica l'opacità (50%). Puoi abbassarlo a 0.3 per renderlo ancora più trasparente o alzarlo a 0.7 */
-    background: rgba(15, 15, 15, 0.5); 
-    
-    /* BORDI STONDATI */
-    border-radius: 16px; 
-    
-    /* SPAZIATURA INTERNA: Necessaria per staccare il testo dal bordo del quadrato */
-    padding: 35px; 
-    
-    /* OPZIONALE: Un leggerissimo bordo per definire meglio il quadrato nel buio */
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    
-    /* OPZIONALE: Effetto vetro sfocato se si intravede qualcosa dietro */
-    backdrop-filter: blur(10px); 
 }
 
 .about-text-block p {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.15rem;
     line-height: 1.8;
-    color: #a3a3a3;
+    color: #cccccc;            /* Leggermente più chiaro per spiccare sullo sfondo soft */
     font-weight: 300;
     text-align: justify;
+    margin: 0;
 }
 
 /* Adattamento Responsive per Tablet e Smartphone */
 @media (max-width: 900px) {
+    .about-section {
+        margin: 40px auto;     /* Riduce il distacco sui telefoni */
+        padding: 40px 25px;    /* Riduce il padding interno per non rubare spazio allo schermo */
+        border-radius: 16px;   /* Stondatura leggermente ridotta sui display piccoli */
+    }
     .about-container {
-        grid-template-columns: 1fr; /* Passa a colonna singola */
-        gap: 30px;
+        grid-template-columns: 1fr; /* Il titolo va sopra, il testo va sotto */
+        gap: 25px;
     }
     .about-title {
         position: static;
-        margin-bottom: 10px;
-    }
-    .about-section {
-        padding: 60px 0;
+        margin-bottom: 5px;
     }
     .about-text-block p {
         font-size: 1.05rem;
