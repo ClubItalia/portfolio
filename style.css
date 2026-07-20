@@ -1078,3 +1078,30 @@ footer {
         font-size: 1.2rem;
     }
 }
+/* ==========================================================================
+   STILI DEDICATI AL DISCLAIMER (COMMISSIONI)
+   ========================================================================== */
+.disclaimer-section {
+    text-align: center;
+    margin-top: 20px !important;
+    margin-bottom: 80px !important;
+}
+
+.portfolio-disclaimer {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666666; /* Grigio scuro soft, non invasivo alla lettura */
+    max-width: 800px;
+    margin: 0 auto;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.2px;
+}
+
+@media (max-width: 768px) {
+    .portfolio-disclaimer {
+        font-size: 0.85rem;
+        text-align: left; /* Migliore resa sui display piccoli */
+    }
+}
