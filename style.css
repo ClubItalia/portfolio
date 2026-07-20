@@ -799,3 +799,80 @@ footer {
 .club-page-layout .lightbox-modal img {
     box-shadow: 0 0 40px rgba(28, 45, 66, 0.8);
 }
+/* ==========================================================================
+   STRUTTURE SPECIFICHE PER GLASS (NIL BLUR - FADE AL NERO)
+   ========================================================================== */
+.glass-page-layout {
+    background: #000000 !important; /* Ritorno al nero assoluto */
+}
+
+/* Header con immagine nitida (senza blur) e fade al nero */
+.glass-hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.glass-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px) brightness(0.5); /* Rimossa la sfocatura, mantenuta la luminosità bilanciata */
+    z-index: 1;
+}
+
+.glass-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 25%, #000000 100%);
+    z-index: 2;
+}
+
+.glass-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+}
+
+.glass-project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    background: linear-gradient(180deg, #ffffff 0%, #a3a3a3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+}
+
+/* Colore personalizzato dei titoli per la sezione Glass (Argento pulito / Futuro) */
+.glass-page-layout .section-title {
+    background: linear-gradient(180deg, #ffffff 0%, #888888 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+.glass-page-layout .tower-bullets li::before {
+    color: #ffffff; /* Punti elenco bianchi minimali */
+}
+
+/* Ombreggiatura della galleria per l'estetica bianca e pulita */
+.glass-page-layout .mosaic-item:hover {
+    box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
+}
