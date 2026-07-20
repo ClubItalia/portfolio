@@ -14,65 +14,66 @@
 </head>
 <body class="leaf-page progetti-page-layout">
 
-    <!-- HEADER IMMERSIVO: Fade netto al nero sul fondo -->
+    <!-- HEADER IMMERSIVO: Immagine nitida con fade rapido al nero sul fondo -->
     <header class="glass-hero" style="--hero-img: url('images/studi-hero.jpg');">
     </header>
 
-    <!-- Navigazione per tornare alla home -->
-    <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
+    <!-- Ritorno alla sezione Archivio -->
+    <a href="archivio.html" class="global-back-logo">
         <img src="images/logo.png" alt="Logo GM" class="logo-img">
     </a>
 
-    <!-- CONTENUTO PRINCIPALE -->
+    <!-- CONTENUTO PRINCIPALE UNIFICATO -->
     <main class="tower-content-wrapper">
         
         <section class="tower-section projects-card-style">
-            <h2 class="section-title">Percorso di Studi</h2>
+            <h2 class="section-title">Percorso Formativo</h2>
             
-            <!-- PARTE 1: ACCADEMIA (Ex Altro/Università) -->
+            <!-- SUB-SEZIONE 1: UNIVERSITÀ -->
             <div class="subsection-block">
                 <h3 class="subsection-title">Accademia Albertina di Belle Arti</h3>
                 <p class="tower-notes">
-                    I due anni di specializzazione e ricerca a Torino hanno rappresentato il punto di passaggio fondamentale verso la terza dimensione. In questo contesto ho assimilato le metodologie plastiche e i fondamenti di modellazione geometrica su Blender, gettando le basi teoriche e pratiche necessarie per la successiva transizione verso lo spatial design e gli ambienti VR.
+                    Il biennio trascorso a Torino ha segnato la transizione fondamentale verso lo spatial design e la terza dimensione. All'interno dell'Accademia ho appreso le metodologie di modellazione 3D e l'utilizzo di Blender, acquisendo le competenze tecniche necessarie per la progettazione di geometrie complesse e ambienti digitali immersivi.
                 </p>
-                <!-- Galleria Università (Esempio a 3 foto) -->
+                <!-- Galleria Università: 3 foto su una riga -->
                 <div class="mosaic-gallery">
                     <div class="mosaic-item normal" onclick="openLightbox('images/uni-1.jpg')">
-                        <img src="images/uni-1.jpg" alt="Accademia Albertina Progetto 1">
+                        <img src="images/uni-1.jpg" alt="Progetto Accademico 1">
                     </div>
                     <div class="mosaic-item normal" onclick="openLightbox('images/uni-2.jpg')">
-                        <img src="images/uni-2.jpg" alt="Accademia Albertina Progetto 2">
+                        <img src="images/uni-2.jpg" alt="Progetto Accademico 2">
                     </div>
                     <div class="mosaic-item normal" onclick="openLightbox('images/uni-3.jpg')">
-                        <img src="images/uni-3.jpg" alt="Accademia Albertina Progetto 3">
+                        <img src="images/uni-3.jpg" alt="Progetto Accademico 3">
                     </div>
                 </div>
             </div>
             
-            <!-- PARTE 2: SUPERIORI (Ex Archivio/Superiori) -->
+            <!-- SUB-SEZIONE 2: SUPERIORI (Staccata graficamente e integrata nella card) -->
             <div class="subsection-block text-space-top">
                 <h3 class="subsection-title">Liceo Artistico</h3>
                 <p class="tower-notes">
-                    Il nucleo originario della mia produzione. Gli anni del Liceo Artistico a Nuoro sono stati il laboratorio in cui ho convertito la passione nativa per il disegno tradizionale in discipline digitali e visive, focalizzandomi intensamente sulla progettazione grafica, sulla fotografia analogica/digitale e sullo studio del linguaggio video (videomaking).
+                    Le radici della mia ricerca visiva. Durante gli studi superiori a Nuoro ho convertito la mia originaria attitudine per il disegno tradizionale nei primi linguaggi digitali, focalizzando il mio percorso sulla progettazione grafica, l'analisi fotografica e lo studio teorico e pratico del videomaking.
                 </p>
-                <!-- Galleria Superiori (Esempio a 3 foto) -->
+                <!-- Galleria Superiori: 3 foto su una riga -->
                 <div class="mosaic-gallery">
-                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-1.jpg')">
-                        <img src="images/liceo-1.jpg" alt="Liceo Artistico Archivio 1">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-1.jpg')">
+                        <img src="images/superiori-1.jpg" alt="Lavoro Liceo Artistico 1">
                     </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-2.jpg')">
-                        <img src="images/liceo-2.jpg" alt="Liceo Artistico Archivio 2">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-2.jpg')">
+                        <img src="images/superiori-2.jpg" alt="Lavoro Liceo Artistico 2">
                     </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/liceo-3.jpg')">
-                        <img src="images/liceo-3.jpg" alt="Liceo Artistico Archivio 3">
+                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-3.jpg')">
+                        <img src="images/superiori-3.jpg" alt="Lavoro Liceo Artistico 3">
                     </div>
                 </div>
             </div>
+            
         </section>
 
     </main>
 
-    <!-- LIGHTBOX -->
+    <!-- INTERFACCIA LIGHTBOX MODAL -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
         <img id="lightbox-img" src="" alt="Enlarged view">
     </div>
