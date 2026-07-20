@@ -916,6 +916,22 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 25px;
+    
+    /* SFONDO: Nero meno opaco (semi-trasparente). 
+       Il valore 0.5 indica l'opacità (50%). Puoi abbassarlo a 0.3 per renderlo ancora più trasparente o alzarlo a 0.7 */
+    background: rgba(15, 15, 15, 0.5); 
+    
+    /* BORDI STONDATI */
+    border-radius: 16px; 
+    
+    /* SPAZIATURA INTERNA: Necessaria per staccare il testo dal bordo del quadrato */
+    padding: 35px; 
+    
+    /* OPZIONALE: Un leggerissimo bordo per definire meglio il quadrato nel buio */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* OPZIONALE: Effetto vetro sfocato se si intravede qualcosa dietro */
+    backdrop-filter: blur(10px); 
 }
 
 .about-text-block p {
