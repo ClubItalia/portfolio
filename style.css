@@ -1105,3 +1105,114 @@ footer {
         text-align: left; /* Migliore resa sui display piccoli */
     }
 }
+/* ==========================================================================
+   STRUTTURE DI DETTAGLIO PER LA SEZIONE STUDI
+   ========================================================================== */
+
+/* Forza l'arrotondamento degli angoli anche sulle foto quadrate/rettangolari della sezione studi */
+.font-studi-img {
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Griglia Video a due colonne */
+.video-portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Scatola di anteprima del video */
+.video-card-wrapper {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.video-thumbnail-overlay {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: filter 0.3s ease;
+}
+
+/* Bottone Play minimale al centro */
+.play-icon-btn {
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    position: relative;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.play-icon-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+/* Animazioni Hover per i video */
+.video-card-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.08);
+}
+
+.video-card-wrapper:hover .play-icon-btn {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* LIGHTBOX DIGITALE PER IL VIDEO ZOOMATO KINEMATIC */
+.video-lightbox-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+.video-lightbox-content {
+    width: 85%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .video-portfolio-grid {
+        grid-template-columns: 1fr; /* Colonna singola su mobile */
+        gap: 20px;
+    }
+    .video-lightbox-content {
+        width: 95%;
+    }
+}

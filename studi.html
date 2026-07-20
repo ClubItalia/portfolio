@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studi - Giovanni Massa</title>
+    <title>Studi & Sperimentazioni - Giovanni Massa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,66 +23,81 @@
         <img src="images/logo.png" alt="Logo GM" class="logo-img">
     </a>
 
-    <!-- CONTENUTO PRINCIPALE UNIFICATO -->
+    <!-- CONTENUTO PRINCIPALE -->
     <main class="tower-content-wrapper">
         
+        <!-- CATEGORIA 1: UNIVERSITÀ -->
         <section class="tower-section projects-card-style">
-            <h2 class="section-title">Percorso Formativo</h2>
+            <h2 class="section-title">Università & 3D</h2>
+            <p class="tower-notes">
+                Il mio percorso accademico si è focalizzato intensamente sullo studio dello spazio tridimensionale e sull'approfondimento delle tecniche di modellazione 3D. In questo ambiente di ricerca ho sviluppato la capacità di gestire flussi di lavoro digitali complessi, imparando a padroneggiare la volumetria, la gestione delle mesh e l'illuminazione per tradurre concept astratti in asset virtuali precisi e funzionali.
+            </p>
             
-            <!-- SUB-SEZIONE 1: UNIVERSITÀ -->
-            <div class="subsection-block">
-                <h3 class="subsection-title">Accademia Albertina di Belle Arti</h3>
-                <p class="tower-notes">
-                    Il biennio trascorso a Torino ha segnato la transizione fondamentale verso lo spatial design e la terza dimensione. All'interno dell'Accademia ho appreso le metodologie di modellazione 3D e l'utilizzo di Blender, acquisendo le competenze tecniche necessarie per la progettazione di geometrie complesse e ambienti digitali immersivi.
-                </p>
-                <!-- Galleria Università: 3 foto su una riga -->
-                <div class="mosaic-gallery">
-                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-1.jpg')">
-                        <img src="images/uni-1.jpg" alt="Progetto Accademico 1">
+            <!-- Immagine singola grande blendata sullo sfondo -->
+            <div class="blended-render-container" onclick="openLightbox('images/studio-3d.jpg')">
+                <img src="images/studio-3d.jpg" alt="Esercizio Modellazione 3D Accademia" class="blended-png-render font-studi-img">
+            </div>
+        </section>
+
+        <!-- CATEGORIA 2: CORTOMETRAGGI -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Cortometraggi</h2>
+            <p class="tower-notes">
+                Esplorazioni registiche e narrative attraverso il mezzo cinematografico digitale. Questa sezione raccoglie le mie produzioni video in cui ho curato autonomamente la direzione artistica, la composizione delle inquadrature e il montaggio, sperimentando sul ritmo visivo per dare vita a racconti immersivi e d'atmosfera.
+            </p>
+            
+            <!-- Griglia a 2 colonne per i video con UI minimale -->
+            <div class="video-portfolio-grid">
+                <!-- Sostituisci ID_VIDEO_1 con l'ID effettivo del tuo video YouTube (es. dQw4w9WgXcQ) -->
+                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'ID_VIDEO_1')">
+                    <div class="video-thumbnail-overlay" style="background-image: url('images/thumb-corto1.jpg');">
+                        <div class="play-icon-btn"></div>
                     </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-2.jpg')">
-                        <img src="images/uni-2.jpg" alt="Progetto Accademico 2">
-                    </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/uni-3.jpg')">
-                        <img src="images/uni-3.jpg" alt="Progetto Accademico 3">
+                </div>
+                
+                <!-- Sostituisci ID_VIDEO_2 con il secondo ID video YouTube -->
+                <div class="video-card-wrapper" onclick="playAndZoomVideo(this, 'ID_VIDEO_2')">
+                    <div class="video-thumbnail-overlay" style="background-image: url('images/thumb-corto2.jpg');">
+                        <div class="play-icon-btn"></div>
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- CATEGORIA 3: CONCORSO FOTOGRAFICO (DIVERSITÀ) -->
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Concept Fotografico: Diversità</h2>
+            <p class="tower-notes">
+                Un progetto visivo strutturato attorno al tema della diversità e presentato sotto forma di concorso fotografico concettuale. L'opera si basa su un'illusione ottica geometrica realizzata senza l'ausilio di rendering automatici: combinando due scatti statici catturati dalla medesima identica angolazione, un posizionamento millimetrico dello specchio e una successiva fusione digitale in Photoshop, ho generato una distorsione della realtà in cui il pezzo degli scacchi riflesso muta la propria natura rispetto all'originale, sfidando la percezione dell'osservatore.
+            </p>
             
-            <!-- SUB-SEZIONE 2: SUPERIORI (Staccata graficamente e integrata nella card) -->
-            <div class="subsection-block text-space-top">
-                <h3 class="subsection-title">Liceo Artistico</h3>
-                <p class="tower-notes">
-                    Le radici della mia ricerca visiva. Durante gli studi superiori a Nuoro ho convertito la mia originaria attitudine per il disegno tradizionale nei primi linguaggi digitali, focalizzando il mio percorso sulla progettazione grafica, l'analisi fotografica e lo studio teorico e pratico del videomaking.
-                </p>
-                <!-- Galleria Superiori: 3 foto su una riga -->
-                <div class="mosaic-gallery">
-                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-1.jpg')">
-                        <img src="images/superiori-1.jpg" alt="Lavoro Liceo Artistico 1">
-                    </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-2.jpg')">
-                        <img src="images/superiori-2.jpg" alt="Lavoro Liceo Artistico 2">
-                    </div>
-                    <div class="mosaic-item normal" onclick="openLightbox('images/superiori-3.jpg')">
-                        <img src="images/superiori-3.jpg" alt="Lavoro Liceo Artistico 3">
-                    </div>
-                </div>
+            <!-- Immagine singola grande per lo scatto fotografico -->
+            <div class="blended-render-container" onclick="openLightbox('images/scacchi-diversita.jpg')">
+                <img src="images/scacchi-diversita.jpg" alt="Illusione ottica scacchi diversità" class="blended-png-render font-studi-img">
             </div>
-            
         </section>
 
     </main>
 
-    <!-- INTERFACCIA LIGHTBOX MODAL -->
+    <!-- INTERFACCIA LIGHTBOX GENERALE (PER LE FOTO) -->
     <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
         <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
+
+    <!-- LIGHTBOX MULTIMEDIALE DEDICATO AI VIDEO ZOOMATI -->
+    <div id="video-lightbox" class="video-lightbox-modal" onclick="closeVideoLightbox(event)">
+        <div class="video-lightbox-content">
+            <div id="video-player-container"></div>
+        </div>
     </div>
 
     <footer>
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
+    <!-- Script combinato per gestione gallerie e logica Player YouTube con Audio Attivo al click -->
     <script>
+        // Gestione Lightbox Immagini
         function openLightbox(src) {
             const modal = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
@@ -93,6 +108,49 @@
         function closeLightbox(event) {
             if (event.target.id === 'lightbox') {
                 document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+
+        // Caricamento asincrono delle API di YouTube per gestire audio e zoom
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var player;
+
+        function playAndZoomVideo(element, videoId) {
+            const videoModal = document.getElementById('video-video-lightbox' || 'video-lightbox');
+            videoModal.style.display = 'flex';
+            
+            // Crea il player con UI ridotta al minimo (controls=0 nasconde i controlli, modestbranding pulisce il logo)
+            player = new YT.Player('video-player-container', {
+                height: '100%',
+                width: '100%',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 1,          /* Lasciato a 1 solo nello zoom per permettere la pausa, ma pulito */
+                    'modestbranding': 1,
+                    'rel': 0,
+                    'showinfo': 0
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.unMute(); // Forza l'attivazione dell'audio al click dello zoom
+                        event.target.playVideo();
+                    }
+                }
+            });
+        }
+
+        function closeVideoLightbox(event) {
+            // Chiude il lightbox solo se clicchi sullo sfondo nero
+            if (event.target.className === 'video-lightbox-modal' || event.target.className === 'video-lightbox-content') {
+                document.getElementById('video-lightbox').style.display = 'none';
+                if (player && player.destroy) {
+                    player.destroy(); // Distrugge il player per fermare l'audio definitivamente
+                }
             }
         }
     </script>
