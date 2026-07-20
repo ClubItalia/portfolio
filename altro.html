@@ -3,30 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tower - Giovanni Massa</title>
+    <title>Altro - Giovanni Massa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-	
-	<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="leaf-page">
+<body class="leaf-page progetti-page-layout">
 
-    <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
-    <img src="images/logo.png" alt="Logo GM" class="logo-img">
-</a>
+    <!-- HEADER IMMERSIVO: Fade netto al nero sul fondo -->
+    <header class="glass-hero" style="--hero-img: url('images/altro-hero.jpg');">
+    </header>
 
-    <main class="leaf-content">
-        <h1 class="leaf-title">The Tower</h1>
-        <p class="leaf-status">Progetto in arrivo</p>
+    <!-- Ritorno alla sezione Archivio -->
+    <a href="archivio.html" class="global-back-logo">
+        <img src="images/logo.png" alt="Logo GM" class="logo-img">
+    </a>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="tower-content-wrapper">
+        
+        <section class="tower-section projects-card-style">
+            <h2 class="section-title">Altro</h2>
+            
+            <!-- GRIGLIA AUTOMATICA: Gestisce qualsiasi numero di foto senza rompere il layout -->
+            <div class="archive-fluid-grid">
+                
+                <!-- [GUIDA EDITING]: Per aggiungere una nuova foto, copia e incolla le 3 righe qui sotto cambiando il nome del file (es. altro-21.jpg) -->
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-1.jpg')">
+                    <img src="images/altro-1.jpg" alt="Archivio Log 1">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-2.jpg')">
+                    <img src="images/altro-2.jpg" alt="Archivio Log 2">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-3.jpg')">
+                    <img src="images/altro-3.jpg" alt="Archivio Log 3">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-4.jpg')">
+                    <img src="images/altro-4.jpg" alt="Archivio Log 4">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-5.jpg')">
+                    <img src="images/altro-5.jpg" alt="Archivio Log 5">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-6.jpg')">
+                    <img src="images/altro-6.jpg" alt="Archivio Log 6">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-7.jpg')">
+                    <img src="images/altro-7.jpg" alt="Archivio Log 7">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-8.jpg')">
+                    <img src="images/altro-8.jpg" alt="Archivio Log 8">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-9.jpg')">
+                    <img src="images/altro-9.jpg" alt="Archivio Log 9">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-10.jpg')">
+                    <img src="images/altro-10.jpg" alt="Archivio Log 10">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-11.jpg')">
+                    <img src="images/altro-11.jpg" alt="Archivio Log 11">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-12.jpg')">
+                    <img src="images/altro-12.jpg" alt="Archivio Log 12">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-13.jpg')">
+                    <img src="images/altro-13.jpg" alt="Archivio Log 13">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-14.jpg')">
+                    <img src="images/altro-14.jpg" alt="Archivio Log 14">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-15.jpg')">
+                    <img src="images/altro-15.jpg" alt="Archivio Log 15">
+                </div>
+
+                <div class="archive-grid-item" onclick="openLightbox('images/altro-16.jpg')">
+                    <img src="images/altro-16.jpg" alt="Archivio Log 16">
+                </div>
+                <!-- [FINE FOTO PRESETTATE] -->
+
+            </div>
+        </section>
+
     </main>
+
+    <!-- LIGHTBOX MULTIMEDIALE -->
+    <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+        <img id="lightbox-img" src="" alt="Enlarged view">
+    </div>
 
     <footer>
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
+    <script>
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
