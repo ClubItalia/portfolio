@@ -1003,23 +1003,40 @@ footer {
     margin-top: 45px;
 }
 
-/* Contenitore Showcase per Singolo Render (Avatar Personale) */
-.single-render-container {
+/* Contenitore per il render blendato (senza scatole o sfondi) */
+.blended-render-container {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 40px;
+    cursor: pointer;
 }
 
-.render-item {
-    max-width: 450px;
+/* L'immagine PNG ora è molto più grande (max 750px invece di 450px) */
+.blended-png-render {
+    max-width: 750px; 
     width: 100%;
-    cursor: pointer;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    height: auto;
+    display: block;
+    object-fit: contain;
+    
+    /* L'ombra non è più un quadrato attorno alla foto, ma segue la silhouette dell'avatar trasparente */
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+    
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+/* Effetto dinamico al passaggio del mouse */
+.blended-render-container:hover .blended-png-render {
+    transform: scale(1.02);
+    filter: drop-shadow(0 20px 45px rgba(255, 255, 255, 0.08)); /* Accenno di luce dietro l'avatar */
+}
+
+/* Ottimizzazione per schermi piccoli */
+@media (max-width: 768px) {
+    .blended-render-container {
+        margin-top: 20px;
+    }
 }
 
 .render-item img {
