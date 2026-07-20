@@ -735,3 +735,67 @@ footer {
     transform: translateY(-2px);
     text-shadow: 0 0 20px rgba(0, 76, 84, 0.9), 0 0 40px rgba(0, 76, 84, 0.4);
 }
+/* ==========================================================================
+   STRUTTURE SPECIFICHE PER CLUB ITALIA (FADE RAL 5013)
+   ========================================================================== */
+.club-page-layout {
+    background: #1C2D42 !important; /* Colore solido di base: Blu cobalto RAL 5013 */
+}
+
+/* Gestione dell'Header con Blur e Fade verso il Blu RAL 5013 */
+.club-hero {
+    position: relative;
+    width: 100%;
+    height: 55vh;
+    min-height: 400px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.club-hero::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: var(--hero-img);
+    background-size: cover;
+    background-position: center;
+    filter: blur(22px) brightness(0.5);
+    z-index: 1;
+}
+
+.club-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Transizione fluida dall'immagine al blu RAL 5013 del body */
+    background: linear-gradient(to bottom, rgba(28, 45, 66, 0) 25%, #1C2D42 100%);
+    z-index: 2;
+}
+
+/* Adattamento cromatico dei titoli interni per Club Italia */
+.club-page-layout .section-title {
+    background: linear-gradient(180deg, #ffffff 0%, #3a5d85 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Adattamento colore dei punti elenco */
+.club-page-layout .tower-bullets li::before {
+    color: #3a5d85;
+}
+
+/* Regolazione ombre della galleria per intonarsi al blu */
+.club-page-layout .mosaic-item:hover {
+    box-shadow: 0 12px 25px rgba(58, 93, 133, 0.4);
+}
+.club-page-layout .lightbox-modal img {
+    box-shadow: 0 0 40px rgba(28, 45, 66, 0.8);
+}

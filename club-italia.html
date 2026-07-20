@@ -3,30 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Tower - Giovanni Massa</title>
+    <title>Club Italia - Giovanni Massa</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
-	
-	<link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
 </head>
-<body class="leaf-page">
+<body class="leaf-page club-page-layout">
 
+    <!-- HEADER IMMERSIVO: Immagine locale sfocata con fade al blu RAL 5013 e logo al centro -->
+    <header class="club-hero" style="--hero-img: url('images/club-italia-hero.jpg');">
+        <div class="tower-logo-container">
+            <img src="images/club-italia-logo.png" alt="Club Italia Logo" class="tower-project-logo">
+        </div>
+    </header>
+
+    <!-- Logo di navigazione globale per tornare alla home -->
     <a href="https://clubitalia.github.io/portfolio/" class="global-back-logo">
-    <img src="images/logo.png" alt="Logo GM" class="logo-img">
-</a>
+        <img src="images/logo.png" alt="Logo GM" class="logo-img">
+    </a>
 
-    <main class="leaf-content">
-        <h1 class="leaf-title">The Tower</h1>
-        <p class="leaf-status">Progetto in arrivo</p>
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="tower-content-wrapper">
+        
+        <!-- 1. PUNTI CHIAVE (Testo ottimizzato per il portfolio) -->
+        <section class="tower-section">
+            <h2 class="section-title">The Project</h2>
+            <ul class="tower-bullets">
+                <li>
+                    <strong>Fondazione e Ruolo:</strong> Nato nel marzo 2022 come hub di aggregazione principale per la community italiana sulla piattaforma VRChat, consolidandosi oggi come la più grande e attiva realtà nazionale nel metaverso.
+                </li>
+                <li>
+                    <strong>Format Musicali Innovativi:</strong> Ideazione e produzione di un evento musicale mensile pionieristico, progettato per introdurre l'utenza italiana alla club culture virtuale attraverso formati inediti e immersivi.
+                </li>
+                <li>
+                    <strong>Rift Showcase:</strong> Un incubatore creativo e uno spazio espositivo sviluppato per permettere ad artisti e digital designer di presentare i propri lavori, ricevere feedback cross-disciplinari e promuovere progetti, esplorando mondi virtuali come fonte di ispirazione visiva.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 2. GALLERIA ESTESA (Fino a 15 foto locali 16:9 con alternanza di formati) -->
+        <section class="tower-section">
+            <h2 class="section-title">Club Italia Gallery</h2>
+            <div class="mosaic-gallery">
+                <!-- Puoi sostituire o rimuovere i blocchi a seconda di quante foto usi (max 15) -->
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-1.jpg')">
+                    <img src="images/club-1.jpg" alt="Space Detail 1">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-2.jpg')">
+                    <img src="images/club-2.jpg" alt="Space Detail 2">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-3.jpg')">
+                    <img src="images/club-3.jpg" alt="Space Detail 3">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-4.jpg')">
+                    <img src="images/club-4.jpg" alt="Space Detail 4">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-5.jpg')">
+                    <img src="images/club-5.jpg" alt="Space Detail 5">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-6.jpg')">
+                    <img src="images/club-6.jpg" alt="Space Detail 6">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-7.jpg')">
+                    <img src="images/club-7.jpg" alt="Space Detail 7">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-8.jpg')">
+                    <img src="images/club-8.jpg" alt="Space Detail 8">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-9.jpg')">
+                    <img src="images/club-9.jpg" alt="Space Detail 9">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-10.jpg')">
+                    <img src="images/club-10.jpg" alt="Space Detail 10">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-11.jpg')">
+                    <img src="images/club-11.jpg" alt="Space Detail 11">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-12.jpg')">
+                    <img src="images/club-12.jpg" alt="Space Detail 12">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-13.jpg')">
+                    <img src="images/club-13.jpg" alt="Space Detail 13">
+                </div>
+                <div class="mosaic-item normal" onclick="openLightbox('images/club-14.jpg')">
+                    <img src="images/club-14.jpg" alt="Space Detail 14">
+                </div>
+                <div class="mosaic-item wide" onclick="openLightbox('images/club-15.jpg')">
+                    <img src="images/club-15.jpg" alt="Space Detail 15">
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERFACCIA LIGHTBOX MODAL -->
+        <div id="lightbox" class="lightbox-modal" onclick="closeLightbox(event)">
+            <img id="lightbox-img" src="" alt="Enlarged view">
+        </div>
+
+        <!-- 3. NOTE PERSONALI (Artist Statement / Direzione Creativa) -->
+        <section class="tower-section">
+            <h2 class="section-title">Leadership & Direction</h2>
+            <p class="tower-notes">
+                Club Italia rappresenta la mia prima importante sfida nel ruolo di leader creativo e gestionale all'interno di una produzione su larga scala. Questo progetto è stato il mio percorso formativo più significativo: mi ha insegnato il valore della perseveranza, la capacità di accogliere il fallimento come strumento di correzione e l'importanza di evolvere costantemente per superare gli obiettivi prefissati. Sotto il profilo della direzione artistica, ho voluto sperimentare una sintesi visiva tra architettura moderna ed elementi naturali, integrando mare, spiagge e palme per dare al mondo un'identità fortemente estiva. Questa scelta stilistica nasce da un legame profondo e personale con Cagliari, la città in cui ho vissuto la maggior parte della mia vita, trasposta qui in una dimensione virtuale e immersiva.
+            </p>
+        </section>
+
     </main>
 
     <footer>
         <p>© 2026 - Ideato e sviluppato da Giovanni Massa</p>
     </footer>
 
+    <script>
+        function openLightbox(src) {
+            const modal = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            modal.style.display = 'flex';
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox') {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
