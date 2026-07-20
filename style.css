@@ -877,3 +877,71 @@ footer {
 .glass-page-layout .mosaic-item:hover {
     box-shadow: 0 12px 25px rgba(255, 255, 255, 0.15);
 }
+/* ==========================================================================
+   SEZIONE BIOGRAFIA (MI RACCONTO - INDEX)
+   ========================================================================== */
+.about-section {
+    width: 100%;
+    padding: 100px 0;
+    border-top: 1px solid #141414;
+    background: #000000;
+}
+
+.about-container {
+    max-width: 1140px;
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Layout asimmetrico moderno */
+    gap: 50px;
+    align-items: top;
+}
+
+.about-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -2px;
+    /* Sfuma dal bianco all'antracite */
+    background: linear-gradient(180deg, #ffffff 0%, #444444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: sticky;
+    top: 40px; /* Rimane bloccato a lato durante lo scroll su desktop */
+}
+
+.about-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.about-text-block p {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #a3a3a3;
+    font-weight: 300;
+    text-align: justify;
+}
+
+/* Adattamento Responsive per Tablet e Smartphone */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr; /* Passa a colonna singola */
+        gap: 30px;
+    }
+    .about-title {
+        position: static;
+        margin-bottom: 10px;
+    }
+    .about-section {
+        padding: 60px 0;
+    }
+    .about-text-block p {
+        font-size: 1.05rem;
+        text-align: left;
+    }
+}
